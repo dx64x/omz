@@ -19,20 +19,20 @@ Ensure your server has the following installed:
 ## **Installation**
 1. Clone this repository or download the script:
    ```bash
-   git clone https://github.com/MNMaqsood/oh-my-zsh-installer.git
-   cd oh-my-zsh-installer
+   git clone https://github.com/dx64x/omz.git
+   cd omz
    ```
 
 2. Make the script executable:
    ```bash
-   chmod +x install_oh_my_zsh.sh
+   chmod +x install_zsh.sh
    ```
 
 3. Run the script with or without arguments:
 
 ### **Usage**
 ```bash
-./install_oh_my_zsh.sh [yes|no]
+./install_zsh.sh [yes|no]
 ```
 
 - **Arguments:**
@@ -43,17 +43,17 @@ Ensure your server has the following installed:
 
 - Install Oh My Zsh and make it the default shell:
   ```bash
-  ./install_oh_my_zsh.sh yes
+  ./install_zsh.sh yes
   ```
 
 - Install Oh My Zsh without changing the default shell:
   ```bash
-  ./install_oh_my_zsh.sh no
+  ./install_zsh.sh no
   ```
 
 - If no argument is passed, it defaults to `no`:
   ```bash
-  ./install_oh_my_zsh.sh
+  ./install_zsh.sh
   ```
 
 ## **License**
