@@ -56,6 +56,17 @@ Ensure your server has the following installed:
   ./install_zsh.sh
   ```
 
+#### Install zsh-completions plugin
+
+* Clone the repository inside your oh-my-zsh repo:
+
+        git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+
+* (optional) Add it to `FPATH` in your `.zshrc` by adding the following line before `source "$ZSH/oh-my-zsh.sh"`:
+
+        fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+
 # Configuração do Zsh para o Usuário Root
 
 ## 1. Corrigindo as permissões e propriedade dos arquivos
