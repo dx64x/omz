@@ -56,5 +56,79 @@ Ensure your server has the following installed:
   ./install_zsh.sh
   ```
 
+# Configuração do Zsh para o Usuário Root
+
+## 1. Corrigindo as permissões e propriedade dos arquivos
+
+Primeiro, vamos garantir que o root tenha as permissões adequadas para acessar e usar os arquivos de configuração do Zsh:
+
+1. Conceda permissões de leitura para o root em todos os arquivos e diretórios dentro do **Oh My Zsh** e dos arquivos de configuração do Zsh:
+
+    ```bash
+    sudo chmod -R +r /home/ussene/.oh-my-zsh
+    sudo chmod -R +r /home/ussene/.zsh
+    ```
+
+2. Altere a propriedade do diretório **Oh My Zsh** para o root, garantindo que o root tenha controle sobre esses arquivos:
+
+    ```bash
+    sudo chown -R root:root /home/ussene/.oh-my-zsh
+    ```
+
+3. Remova as permissões de gravação para **grupo** e **outros usuários** nos diretórios de configuração, para evitar problemas de segurança:
+
+    ```bash
+    sudo chmod -R g-w,o-w /home/ussene/.oh-my-zsh
+    ```
+
+## 2. Criando Links Simbólicos para o Root
+
+Agora, vamos criar links simbólicos para garantir que o **root** tenha acesso aos diretórios e arquivos de configuração do Zsh.
+
+1. Crie um link simbólico para o diretório **Oh My Zsh**:
+
+    ```bash
+    sudo ln -s /home/ussene/.oh-my-zsh /root/.oh-my-zsh
+    ```
+
+2. Crie links simbólicos para as pastas de **autosuggestions** e **syntax highlighting**:
+
+    ```bash
+    sudo ln -s /home/ussene/.zsh/zsh-autosuggestions /root/.zsh/zsh-autosuggestions
+    sudo ln -s /home/ussene/.zsh/zsh-syntax-highlighting /root/.zsh/zsh-syntax-highlighting
+    ```
+
+## 3. Modificando o arquivo `.zshrc` do Root
+
+Agora, vamos modificar o arquivo `~/.zshrc` do root para garantir que ele use o arquivo de configuração do seu usuário normal.
+
+1. Abra o arquivo `~/.zshrc` do root para edição:
+
+    ```bash
+    sudo nano ~/.zshrc
+    ```
+
+2. No final do arquivo, adicione a seguinte linha para garantir que o arquivo `~/.zshrc` do seu usuário normal seja carregado:
+
+    ```bash
+    if [ -f /home/ussene/.zshrc ]; then
+        source /home/ussene/.zshrc
+    fi
+    ```
+
+3. Salve e feche o arquivo (`Ctrl + O` para salvar e `Ctrl + X` para sair no `nano`).
+
+## 4. Aplicando as mudanças
+
+Para garantir que as mudanças tenham efeito, execute o comando a seguir:
+
+```bash
+source ~/.zshrc
+```
+
+---
+
+🎉
+
 ## **License**
 This project is licensed under the [MIT License](LICENSE).
