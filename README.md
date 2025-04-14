@@ -76,20 +76,20 @@ Primeiro, vamos garantir que o root tenha as permissões adequadas para acessar 
 1. Conceda permissões de leitura para o root em todos os arquivos e diretórios dentro do **Oh My Zsh** e dos arquivos de configuração do Zsh:
 
     ```bash
-    sudo chmod -R +r /home/ussene/.oh-my-zsh
-    sudo chmod -R +r /home/ussene/.zsh
+    sudo chmod -R +r /home/you_user/.oh-my-zsh
+    sudo chmod -R +r /home/you_user/.zsh
     ```
 
 2. Altere a propriedade do diretório **Oh My Zsh** para o root, garantindo que o root tenha controle sobre esses arquivos:
 
     ```bash
-    sudo chown -R root:root /home/ussene/.oh-my-zsh
+    sudo chown -R root:root /home/you_user/.oh-my-zsh
     ```
 
 3. Remova as permissões de gravação para **grupo** e **outros usuários** nos diretórios de configuração, para evitar problemas de segurança:
 
     ```bash
-    sudo chmod -R g-w,o-w /home/ussene/.oh-my-zsh
+    sudo chmod -R g-w,o-w /home/you_user/.oh-my-zsh
     ```
 
 ## 2. Criando Links Simbólicos para o Root
@@ -99,14 +99,14 @@ Agora, vamos criar links simbólicos para garantir que o **root** tenha acesso a
 1. Crie um link simbólico para o diretório **Oh My Zsh**:
 
     ```bash
-    sudo ln -s /home/ussene/.oh-my-zsh /root/.oh-my-zsh
+    sudo ln -s /home/you_user/.oh-my-zsh /root/.oh-my-zsh
     ```
 
 2. Crie links simbólicos para as pastas de **autosuggestions** e **syntax highlighting**:
 
     ```bash
-    sudo ln -s /home/ussene/.zsh/zsh-autosuggestions /root/.zsh/zsh-autosuggestions
-    sudo ln -s /home/ussene/.zsh/zsh-syntax-highlighting /root/.zsh/zsh-syntax-highlighting
+    sudo ln -s /home/you_user/.zsh/zsh-autosuggestions /root/.zsh/zsh-autosuggestions
+    sudo ln -s /home/you_user/.zsh/zsh-syntax-highlighting /root/.zsh/zsh-syntax-highlighting
     ```
 
 ## 3. Modificando o arquivo `.zshrc` do Root
@@ -122,8 +122,8 @@ Agora, vamos modificar o arquivo `~/.zshrc` do root para garantir que ele use o 
 2. No final do arquivo, adicione a seguinte linha para garantir que o arquivo `~/.zshrc` do seu usuário normal seja carregado:
 
     ```bash
-    if [ -f /home/ussene/.zshrc ]; then
-        source /home/ussene/.zshrc
+    if [ -f /home/you_user/.zshrc ]; then
+        source /home/you_user/.zshrc
     fi
     ```
 
